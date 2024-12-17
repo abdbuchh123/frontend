@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mental Health Network</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/svg+xml" href="assets/mentalhealthicon.svg" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-links">
+        <a href="#" onclick="showSection('home')">Home</a>
+        <a href="#" onclick="showSection('blog')">Blog</a>
+        <a href="#" onclick="showSection('resources')">Resources</a>
+        <a href="#" onclick="showSection('contact')">Contact</a>
+        <div id="authLinks">
+          <a href="#" onclick="showSection('login')" class="auth-link">Login</a>
+          <a href="#" onclick="showSection('register')" class="auth-link"
+            >Register</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <div class="content">
+      <!-- Home Section -->
+      <section id="home">
+        <h1>Welcome to the Mental Health Network</h1>
+        <div class="dashboard">
+          <div class="card">
+            <h2>Get Support</h2>
+            <p>
+              Find help and support from our community of mental health
+              professionals.
+            </p>
+          </div>
+          <div class="card">
+            <h2>Share Your Journey</h2>
+            <p>
+              Read and share personal stories about mental health, connect with
+              others, and feel supported in your journey to wellness.
+            </p>
+          </div>
+          <div class="card">
+            <h2>Resources</h2>
+            <p>
+              Access tools and resources to support your mental health journey.
+            </p>
+          </div>
+          <div class="card">
+            <h2>Contact Us</h2>
+            <p>
+              Contact us with any quesitons and we will try to reach you as soon
+              as possible!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Blog Section -->
+      <section id="blog" class="hidden">
+        <h1>Blog Posts</h1>
+
+        <!-- Blog Post Form -->
+        <div class="blog-form card">
+          <h2>Create New Post</h2>
+          <div class="form-group">
+            <label for="postTitle">Title:</label>
+            <input type="text" id="postTitle" required />
+          </div>
+          <div class="form-group">
+            <label for="postContent">Content:</label>
+            <textarea id="postContent" rows="5" required></textarea>
+          </div>
+          <button onclick="createBlogPost()">Publish Post</button>
+        </div>
+
+        <!-- Blog Posts Container -->
+        <div id="blogPosts" class="blog-posts">
+          <!-- Blog posts will be dynamically inserted here -->
+        </div>
+      </section>
+
+      <!-- Resources Section -->
+      <section id="resources" class="hidden">
+        <h1>Mental Health Resources</h1>
+
+        <!-- Emergency Resources -->
+        <div class="resource-category card">
+          <h2>🚨 Emergency Resources</h2>
+          <div class="resource-grid">
+            <div class="resource-item">
+              <h3>Crisis Hotlines</h3>
+              <ul>
+                <li>National Suicide Prevention Lifeline: 988</li>
+                <li>Crisis Text Line: Text HOME to 741741</li>
+                <li>Veterans Crisis Line: 1-800-273-8255</li>
+              </ul>
+            </div>
+            <div class="resource-item">
+              <h3>Emergency Services</h3>
+              <p>If you're in immediate danger:</p>
+              <ul>
+                <li>Call Emergency Services: 911</li>
+                <li>Go to nearest Emergency Room</li>
+                <li>Contact local crisis center</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Self-Help Tools -->
+        <div class="resource-category card">
+          <h2>🛠️ Self-Help Tools</h2>
+          <div class="resource-grid">
+            <div class="resource-item expandable">
+              <h3>Meditation & Mindfulness</h3>
+              <div class="resource-content">
+                <ul>
+                  <li>Guided meditation exercises</li>
+                  <li>Breathing techniques</li>
+                  <li>Mindfulness practices</li>
+                </ul>
+              </div>
+              <div class="expanded-content">
+                <h4>5-Minute Breathing Exercise</h4>
+                <ol>
+                  <li>Find a comfortable position</li>
+                  <li>Close your eyes or maintain a soft gaze</li>
+                  <li>Breathe in for 4 counts</li>
+                  <li>Hold for 4 counts</li>
+                  <li>Exhale for 4 counts</li>
+                  <li>Repeat for 5 minutes</li>
+                </ol>
+                <h4>Quick Mindfulness Tips</h4>
+                <ul>
+                  <li>Focus on your senses</li>
+                  <li>Practice body awareness</li>
+                  <li>Observe your thoughts without judgment</li>
+                </ul>
+              </div>
+              <button class="expand-btn">Show More</button>
+            </div>
+            <div class="resource-item expandable">
+              <h3>Mood Tracking</h3>
+              <div class="resource-content">
+                <ul>
+                  <li>Daily mood journal templates</li>
+                  <li>Emotion tracking sheets</li>
+                  <li>Trigger identification worksheets</li>
+                </ul>
+              </div>
+              <div class="expanded-content">
+                <h4>Available Templates</h4>
+                <ul>
+                  <li>Daily Mood Journal</li>
+                  <li>Weekly Emotion Log</li>
+                  <li>Trigger Identification Worksheet</li>
+                  <li>Coping Skills Tracker</li>
+                </ul>
+                <p>
+                  Track your daily emotions, identify patterns, and develop
+                  coping strategies.
+                </p>
+              </div>
+              <button class="expand-btn">Show More</button>
+            </div>
+            <div class="resource-item expandable">
+              <h3>Coping Strategies</h3>
+              <div class="resource-content">
+                <ul>
+                  <li>Stress management techniques</li>
+                  <li>Anxiety coping tools</li>
+                  <li>Depression management strategies</li>
+                </ul>
+              </div>
+              <div class="expanded-content">
+                <h4>For Anxiety:</h4>
+                <ul>
+                  <li>Grounding techniques</li>
+                  <li>Progressive muscle relaxation</li>
+                  <li>Cognitive reframing</li>
+                </ul>
+                <h4>For Depression:</h4>
+                <ul>
+                  <li>Activity scheduling</li>
+                  <li>Behavioral activation</li>
+                  <li>Positive self-talk</li>
+                </ul>
+              </div>
+              <button class="expand-btn">Show More</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Professional Help -->
+        <div class="resource-category card">
+          <h2>👨‍⚕️ Professional Help</h2>
+          <div class="resource-grid">
+            <div class="resource-item expandable">
+              <h3>Find a Therapist</h3>
+              <div class="resource-content">
+                <ul>
+                  <li>Therapist directory</li>
+                  <li>Insurance information</li>
+                  <li>Types of therapy explained</li>
+                </ul>
+              </div>
+              <div class="expanded-content">
+                <h4>Finding the Right Therapist</h4>
+                <p>Important factors to consider:</p>
+                <ul>
+                  <li>Specialization and experience</li>
+                  <li>Insurance coverage</li>
+                  <li>Location and availability</li>
+                  <li>Therapy style and approach</li>
+                </ul>
+              </div>
+              <button class="expand-btn">Show More</button>
+            </div>
+            <div class="resource-item expandable">
+              <h3>Support Groups</h3>
+              <div class="resource-content">
+                <ul>
+                  <li>Online support communities</li>
+                  <li>Local support groups</li>
+                  <li>Specialized groups by condition</li>
+                </ul>
+              </div>
+              <div class="expanded-content">
+                <h4>Types of Support Groups</h4>
+                <ul>
+                  <li>Depression support</li>
+                  <li>Anxiety support</li>
+                  <li>PTSD support</li>
+                  <li>General mental health</li>
+                </ul>
+                <p>
+                  Contact your local mental health organization for in-person
+                  groups.
+                </p>
+              </div>
+              <button class="expand-btn">Show More</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="hidden">
+        <h1>Contact Us</h1>
+        <div class="contact-form">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" rows="5" required></textarea>
+          </div>
+          <button onclick="submitForm()">Send Message</button>
+        </div>
+      </section>
+
+      <!-- Login Section -->
+      <section id="login" class="hidden">
+        <h1>Login</h1>
+        <div class="auth-form card">
+          <div class="form-group">
+            <label for="loginEmail">Email:</label>
+            <input type="email" id="loginEmail" required />
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" required />
+          </div>
+          <button onclick="login()">Login</button>
+        </div>
+      </section>
+
+      <!-- Register Section -->
+      <section id="register" class="hidden">
+        <h1>Register</h1>
+        <div class="auth-form card">
+          <div class="form-group">
+            <label for="registerName">Name:</label>
+            <input type="text" id="registerName" required />
+          </div>
+          <div class="form-group">
+            <label for="registerEmail">Email:</label>
+            <input type="email" id="registerEmail" required />
+          </div>
+          <div class="form-group">
+            <label for="registerPassword">Password:</label>
+            <input type="password" id="registerPassword" required />
+          </div>
+          <button onclick="register()">Register</button>
+        </div>
+      </section>
+
+      <!-- Admin Panel Section -->
+      <section id="admin" class="hidden">
+        <h1>Admin Panel</h1>
+        <div class="admin-dashboard">
+          <!-- User Management -->
+          <div class="admin-section card">
+            <h2>User Management</h2>
+            <div id="userList" class="list-container">
+              <!-- Users will be listed here -->
+            </div>
+          </div>
+
+          <!-- Blog Management -->
+          <div class="admin-section card">
+            <h2>Blog Posts</h2>
+            <div id="adminBlogList" class="list-container">
+              <!-- Blog posts will be listed here -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
